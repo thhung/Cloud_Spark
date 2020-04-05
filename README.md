@@ -26,4 +26,19 @@ From the distributed system perspective, by investigate the implementation of di
 -  *reduce()* is the bottle neck of system in this implementation and **treeReduce/treeAggregate** is these alternatives to reduce the load the driver has to deal with, so improve the system's performance.
 -  When dataset's size is small, it is true that the distributed algoritms will take much more time in comparison to serial algorithms. Because in small datasets, the time-cost for transfering data between machines, waiting for synchronous updates, etc. outweight the time-cost of calculating gradients, updating thetas, etc.
 
-### 3.2. 
+### 3.2. K-mean
+* Machine Learning's perspective:
+	- KMean is:
+		+ fast and efficient, can be strictly converged
+		+ good at capturing spherical-like structure of the dataset, depends heavily on the initial centroids, sensitive to outliers
+
+* Distributed System's perspective:
+	Caching mechanism of Spark:
+	- Caching is one mechanism to speed up applications that acess the same RDD multiple times.
+	- There are two functions for caching an RDD: cache() and persist(StorageLevel):
+		+ cache() will cache the RDD into memory
+		+ persist(level) can cache in memory, on disk, or off-heap memory according to the caching strategy specified by StorageLevel
+
+
+### 3.3 
+
