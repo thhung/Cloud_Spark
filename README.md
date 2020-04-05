@@ -1,9 +1,10 @@
 # ML ALGORITHMS IN DISTRIBUTED SYSTEMS
 
-This repo contains the implementation of common algorithm used for machine learning such as SGD, KNN in distributed system. 
+This repo contains a short series of projects to demonstrate different use-cases in distrubted system. In this series, there are the implementations of common algorithms such as SGD, KNN in distributed system and a project of data analysis with Spark. 
 
 ## 1. Purpose:
-Practice the design of distributed system. In this case, my implementation is on Spark. I would like to investigate the disadvantages, advantages of distributed system in each cases. It is not wise to always apply the distributed version of algorithm for all cases. 
+- Practice the design of distributed system.
+- Investigate the disadvantages, advantages of distributed system in each use-cases(it is not wise to always apply the distributed version of algorithm for all cases). 
 
 ## 2. Approach:
 All the notebooks in this repo follow a similar approach:
@@ -19,7 +20,7 @@ Since these notebook is **quite long**, I will provides the summary of what I fo
 
 ## 3. Results
 ### 3.1. Stochastic Gradient Descent (SGD)
-From the machine learning perspective, my implementation confirmed the well-known fact that Mini-Batch-SGD is in the middle of Batch Gradient Descent and Mini-Batch Stochastic Gradient Descent, in terms of convergence-rate and fluctuation. It's easier to tune, using learning-rate, than SGD.
+From the algorithm's perspective, my implementation confirmed the well-known fact that Mini-Batch-SGD is in the middle of Batch Gradient Descent and Mini-Batch Stochastic Gradient Descent, in terms of convergence-rate and fluctuation. It's easier to tune, using learning-rate, than SGD.
 
 From the distributed system perspective, by investigate the implementation of distributed version, I had a couple of observations:
 -  choosing optimized value for number of partition given the cluster configuration (using information from Spark Master Web UI) to maxmize the data locality, minimize data transfer
@@ -40,5 +41,10 @@ From the distributed system perspective, by investigate the implementation of di
 		+ persist(level) can cache in memory, on disk, or off-heap memory according to the caching strategy specified by StorageLevel
 
 
-### 3.3 
+### 3.3 SPARKSQL
+In this project, I did only use the data analysis to demonstrate the utilisation of SparkSQL to find the insights about a flight dataset. 
+* Distributed System's perspective:
+	- DataFrame organizes underhood RDDs into a structured table, allowing SparkSQL to optimize the query. Therefore, DataFrame API is faster than RDD.
+
+
 
